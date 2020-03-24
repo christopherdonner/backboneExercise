@@ -1,0 +1,1 @@
+MyApp = new BackBone.Marionette.Application();
