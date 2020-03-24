@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/christopherdonner/backboneExercise/issues"
   },
-  "homepage": "https://github.com/christopherdonner/backboneExercise#readme"
+  "homepage": "https://github.com/christopherdonner/backboneExercise#readme",
+  "dependencies": {
+    "backbone": "^1.4.0",
+    "handlebars": "^4.7.3",
+    "require": "^2.4.20",
+    "underscore": "^1.9.2"
+  }
 }
