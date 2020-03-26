@@ -1,37 +1,39 @@
 $(document).ready(function(){
-// MyApp = new BackBone.Marionette.Application();
 
 let basicModel=Backbone.Model.extend({
+
     defaults: {
-        text: 'shit',
-        count: 0,
-        title: 'count'
+        count: 0
     },
+    
     increase: function() {
         console.log('up')
-        this.set('count', this.get('count')+=1)
+        this.set('count', this.get('count')+1)
     },
     decrease: function(){
         console.log('down')
-        this.set('count', this.get('count')-=1)
+        this.set('count', this.get('count')-1)
     }
 })
 
-let basicView  = Backbone.View.extend({
+var basicView  = Backbone.View.extend({
+
     initialize: function() {
         this.model.on('change', this.render, this);
+        console.log('init')
     },
 
     events: {
-        "click #buttonUp": 'buttonUp',
-        "click #buttonDown": 'buttonDown'
+        "click #increment_button": 'increment',
+        "click #decrement_button": 'decrement'
     },
 
-    buttonUp: function(){
+    increment: function(){
         console.log('increase')
         this.model.increase()
     },
-    buttonDown: function(){
+
+    decrement: function(){
         console.log('decrease')
         this.model.decrease()
     },
@@ -46,6 +48,7 @@ let basicView  = Backbone.View.extend({
 let myBasicModel = new basicModel({count: 1})
 
 let myBasicView=new basicView({model: myBasicModel, el: '.region'})
-
+myBasicModel.increase()
+myBasicView.decrement()
 myBasicView.render()
 })
