@@ -17,14 +17,15 @@ let basicModel=Backbone.Model.extend({
     }
 })
 
-let basicView  = Backbone.View.extend({
-    initialize: function() {
-        this.model.on('change', this.render, this);
-    },
+var basicView  = Backbone.View.extend({
 
     events: {
-        "click #buttonUp": 'buttonUp',
-        "click #buttonDown": 'buttonDown'
+        "click .button-up": "buttonUp",
+        "click .button.down": 'buttonDown'
+    },
+
+    initialize: function() {
+        this.model.on('change', this.render, this);
     },
 
     buttonUp: function(){
